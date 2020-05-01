@@ -1,0 +1,44 @@
+input.form-control.file-upload-info {
+    background: transparent;
+}
+
+input.file-upload-default {
+    visibility: hidden;
+    position: absolute;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.modal_pos {
+    padding-right: 185px !important;
+}
+
+.modal-header {
+    background-color: #4a0575;
+}
+
+.modal-title {
+    color: #fff;
+}
