@@ -1,8 +1,8 @@
 @extends('admin.master') @section('mainContent')
 <div class="breadcrumb">
     <ul>
-        <li><a href="#">Human Resources</a></li>
-        <li>Staff Create</li>
+        <li><a href="#">Foods</a></li>
+        <li>Feed Food</li>
     </ul>
 </div>
 <div class=" border-top"></div>
@@ -67,7 +67,7 @@
                                                                 <input class="primary-input form-control" type="number" name="quantity[]">
                                                             </td>
                                                             <td>
-                                                                <input type="button" class="btn btn-primary" value="Add" onclick="addField();">
+                                                                <input type="button" class="btn btn-primary" value="Add" onclick="addField(); clickCounter()">
                                                             </td>
                                                         </tr>
 
@@ -79,11 +79,19 @@
                                                 </table>
 
                                                 <input type="text" hidden value="{{url('/')}}" id="url">
-
+                                                <input type="text" hidden  value="" id="counter">
+                                                <script type="text/javascript">
+                                                    var clicks = 1;
+                                                    function clickCounter() {
+                                                        clicks += 1;
+                                                        document.getElementById("counter").value = clicks;
+                                                    };
+                                                    </script>
                                                 <script>
                                                     function addField(finish_type) {
-                                                        var myTable = document.getElementById(myTable);
-                                                        var url = $("#url").val();
+                                                            var clicks=document.getElementById("counter").value ;
+                                                            var myTable = document.getElementById(myTable);
+                                                            var url = $("#url").val();
 
                                                         var formData = {};
 
@@ -93,33 +101,31 @@
                                                             dataType: "json",
                                                             url: url + "/" + "admin/get-food-item",
                                                             success: function(data) {
-                                                                // console.log(data.name);
+                                                                // console.log(data);
                                                                 var dynamicProductList = "";
-                                                                // $("#show_product_list").empty();
-
-                                                                data.forEach(function(item, i) {
-                                                                    // console.log(item.name);
-
-                                                                    // item.forEach((element) => {
-                                                                    //  console.log(element);
-                                                                    dynamicProductList += `
-                                                                        <tr id=foodrow${item.id}>
+                                                                dynamicProductList += `
+                                                                        <tr id='foodrow'>
                                                                         <td>
-                                                                            <select class='niceSelect w-100 bb form-control' name="food_id[]" >
-                                                                                <option value=''>Select Food</option>
-                                                                                <option value='${item.id}'>${item.name}</option>
-                                                                            </select>
+                                                                            <select class='niceSelect w-100 bb form-control' id="food_list`+clicks+`" name="food_id[]" >
+                                                                                <option value=''>Select Food</option> 
+                                                                                </select>
                                                                         </td>
                                                                         <td><input type='number' class='form-control' name='quantity[]'></td>
                                                                         <td><input type="button" class='btn btn-danger' onclick="removeRow(this)" value="Delete" /></td>
                                                                         </tr>`;
-                                                                    // });
+                                                                
+                                                                $("#myTable").append(dynamicProductList);
 
-                                                                    $("#myTable").append(dynamicProductList);
+                                                                //=========================
+                                                                Object.keys(data).forEach(function(key) {
+                                                                    var select=document.getElementById('food_list'+clicks);
+                                                                    var option = document.createElement("option");
+                                                                        option.text = data[key].name;
+                                                                        option.value = data[key].id;
+                                                                    select.appendChild(option);
+
                                                                 });
-
-                                                                // console.log(dynamicProductList);
-
+                                                                //=========================
                                                             },
                                                             error: function(data) {
                                                                 console.log("no");

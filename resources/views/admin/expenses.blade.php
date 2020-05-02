@@ -111,7 +111,7 @@
 
                                                                     <div class="input-effect mt-20 mb-20">
                                                                         <label>Amount</label>
-                                                                        <input class="primary-input form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" type="number" value="{{$item->amount}}"   name="amount" >
+                                                                        <input class="primary-input form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" type="text" onkeyup="isNumberKeyDecimal(this);" value="{{$item->amount}}"   name="amount" >
                                                                         <span class="focus-border"></span>
                                                                         @if ($errors->has('amount'))
                                                                         <span class="invalid-feedback" role="alert">
@@ -242,7 +242,7 @@
 
                                   <div class="input-effect mt-20 mb-20">
                                         <label>Amount</label>
-                                        <input class="primary-input form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" type="number"  name="amount" >
+                                        <input class="primary-input form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" type="text" onkeyup="isNumberKeyDecimal(this);"  name="amount" >
                                         <span class="focus-border"></span>
                                         @if ($errors->has('amount'))
                                         <span class="invalid-feedback" role="alert">

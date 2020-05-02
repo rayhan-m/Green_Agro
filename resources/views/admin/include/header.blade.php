@@ -23,7 +23,23 @@
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <script src="https://kit.fontawesome.com/085deefb5a.js" crossorigin="anonymous"></script>
 </head>
-
+<script type="text/javascript">
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : (event.keyCode);
+            if (charCode > 31 && (charCode < 48 || charCode > 57)){
+                return false;
+            }
+            return true;
+        }
+    </script>
+     <script type="text/Javascript">
+        function isNumberKeyDecimal(el){
+            var ex = /^[0-9]+\.?[0-9]*$/;
+                if(ex.test(el.value)==false){
+                el.value = el.value.substring(0,el.value.length - 1);
+            }
+        }
+</script>
 <body class="text-left">
     <div class="app-admin-wrap layout-sidebar-vertical sidebar-full">
         <div class="sidebar-panel">

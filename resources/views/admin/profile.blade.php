@@ -64,7 +64,7 @@
                                 
                                 <li class="col-sm-12">
                                 <label>Phone No
-                                    <input type="text" value="{{ @$profile->phone }}" class="form-control" name="phone" placeholder="">
+                                    <input type="text" onkeypress="return isNumberKey(event)" value="{{ @$profile->phone }}" class="form-control" name="phone" placeholder="">
                                 </label>
                                 </li>
                                 <li class="col-sm-12 text-center">

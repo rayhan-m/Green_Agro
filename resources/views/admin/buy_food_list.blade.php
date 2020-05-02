@@ -98,7 +98,7 @@
                                                             <label>Price</label>
                                                             <input
                                                                 class="primary-input form-control{{ $errors->has('price') ? ' is-invalid' : '' }}"
-                                                                type="number" min="0" value="{{@$item->price}}" name="price" placeholder="Price" autocomplete="off">
+                                                                type="text" min="0" value="{{@$item->price}}" onkeyup="isNumberKeyDecimal(this);" name="price" placeholder="Price" autocomplete="off">
                                                             <span class="focus-border"></span> @if ($errors->has('price'))
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('price') }}</strong>
@@ -108,7 +108,7 @@
                                                             <label>Quantity/KG</label>
                                                             <input
                                                                 class="primary-input form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}"
-                                                                type="number" min="0" value="{{@$item->quantity}}" name="quantity" placeholder="Quantity/KG" autocomplete="off">
+                                                                type="text" min="0" value="{{@$item->quantity}}" onkeyup="isNumberKeyDecimal(this);" name="quantity" placeholder="Quantity/KG" autocomplete="off">
                                                             <span class="focus-border"></span> @if ($errors->has('quantity'))
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('quantity') }}</strong>
@@ -191,7 +191,7 @@
                                     <label>Price</label>
                                     <input
                                         class="primary-input form-control{{ $errors->has('price') ? ' is-invalid' : '' }}"
-                                        type="number" min="0" name="price" placeholder="Price" autocomplete="off">
+                                        type="text" onkeyup="isNumberKeyDecimal(this);" min="0" name="price" placeholder="Price" autocomplete="off">
                                     <span class="focus-border"></span> @if ($errors->has('price'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('price') }}</strong>
@@ -201,7 +201,7 @@
                                     <label>Quantity/KG</label>
                                     <input
                                         class="primary-input form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}"
-                                        type="number" min="0" name="quantity" placeholder="Quantity/KG" autocomplete="off">
+                                        type="text" onkeyup="isNumberKeyDecimal(this);" min="0" name="quantity" placeholder="Quantity/KG" autocomplete="off">
                                     <span class="focus-border"></span> @if ($errors->has('quantity'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('quantity') }}</strong>

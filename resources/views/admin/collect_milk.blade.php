@@ -96,7 +96,7 @@
 
                                                                     <div class="input-effect mt-20 mb-20">
                                                                         <label>Quantity/Ltr.</label>
-                                                                        <input class="primary-input form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}" type="number" value="{{$item->quantity}}"   name="quantity" >
+                                                                        <input class="primary-input form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}" type="text" onkeyup="isNumberKeyDecimal(this);" value="{{$item->quantity}}"   name="quantity" >
                                                                         <span class="focus-border"></span>
                                                                         @if ($errors->has('quantity'))
                                                                         <span class="invalid-feedback" role="alert">
@@ -189,7 +189,7 @@
 
                                   <div class="input-effect mt-20 mb-20">
                                     <label>Quantity/Ltr.</label>
-                                    <input class="primary-input form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}" type="number"  name="quantity" >
+                                    <input class="primary-input form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}" type="text" onkeyup="isNumberKeyDecimal(this);"  name="quantity" >
                                     <span class="focus-border"></span>
                                     @if ($errors->has('quantity'))
                                     <span class="invalid-feedback" role="alert">

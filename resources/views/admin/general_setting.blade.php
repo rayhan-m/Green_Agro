@@ -225,7 +225,7 @@
                                     <div class="row mb-20">
                                         <div class="col-lg-4">
                                             <div class="input-effect">
-                                                <input class="primary-input form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" type="text" placeholder="Phone No *" name="phone" value="{{ $data->phone }}" autocomplete="off">
+                                                <input class="primary-input form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" onkeypress="return isNumberKey(event)" type="text" placeholder="Phone No *" name="phone" value="{{ $data->phone }}" autocomplete="off">
                                                 <span class="focus-border"></span> @if ($errors->has('phone'))
                                                 <span class="invalid-feedback" role="alert">
                                               <strong>{{ $errors->first('phone') }}</strong>

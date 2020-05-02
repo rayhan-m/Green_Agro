@@ -164,7 +164,7 @@
                                     <div class="col-lg-3">
                                         <div class="input-effect">
                                             <label>Mobile <span>*</span> </label>
-                                            <input class="primary-input form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" type="text"  name="mobile" value="{{isset($editData)? @$editData->mobile : '' }}">
+                                            <input class="primary-input form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" onkeypress="return isNumberKey(event)" type="text"  name="mobile" value="{{isset($editData)? @$editData->mobile : '' }}">
                                             <span class="focus-border"></span>
                                             @if ($errors->has('mobile'))
                                             <span class="invalid-feedback" role="alert">
@@ -189,7 +189,7 @@
                                     <div class="col-lg-3">
                                         <div class="input-effect">
                                             <label>Emergency Mobile </label>
-                                            <input class="primary-input form-control{{ $errors->has('emergency_mobile') ? ' is-invalid' : '' }}" type="text"  name="emergency_mobile" value="{{isset($editData)? @$editData->emergency_mobile : '' }}">
+                                            <input class="primary-input form-control{{ $errors->has('emergency_mobile') ? ' is-invalid' : '' }}" type="text" onkeypress="return isNumberKey(event)"  name="emergency_mobile" value="{{isset($editData)? @$editData->emergency_mobile : '' }}">
                                             <span class="focus-border"></span>
                                             @if ($errors->has('emergency_mobile'))
                                             <span class="invalid-feedback" role="alert">
@@ -201,7 +201,7 @@
                                     <div class="col-lg-3">
                                         <div class="input-effect">
                                             <label>Basic Salary </label>
-                                            <input class="primary-input form-control{{ $errors->has('basic_salary') ? ' is-invalid' : '' }}" type="number"  name="basic_salary" value="{{isset($editData)? @$editData->basic_salary : '' }}">
+                                            <input class="primary-input form-control{{ $errors->has('basic_salary') ? ' is-invalid' : '' }}" type="text" onkeyup="isNumberKeyDecimal(this);"  name="basic_salary" value="{{isset($editData)? @$editData->basic_salary : '' }}">
                                             <span class="focus-border"></span>
                                             @if ($errors->has('basic_salary'))
                                             <span class="invalid-feedback" role="alert">
@@ -216,7 +216,7 @@
                                     <div class="col-lg-3">
                                         <div class="input-effect">
                                             <label>NID No </label>
-                                            <input class="primary-input form-control{{ $errors->has('nid') ? ' is-invalid' : '' }}" type="number"  name="nid" value="{{isset($editData)? @$editData->nid : '' }}">
+                                            <input class="primary-input form-control{{ $errors->has('nid') ? ' is-invalid' : '' }}" type="text" onkeypress="return isNumberKey(event)"  name="nid" value="{{isset($editData)? @$editData->nid : '' }}">
                                             <span class="focus-border"></span>
                                             @if ($errors->has('nid'))
                                             <span class="invalid-feedback" role="alert">

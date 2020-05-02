@@ -87,7 +87,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label" for="inputPassword3" >Paid Amount</label>
                         <div class="col-sm-9">
-                            <input class="primary-input form-control{{ $errors->has('pay_amount') ? ' is-invalid' : '' }}" type="text" min="0" value="{{@$total_payable}}" name="pay_amount" placeholder="Paid amount"autocomplete="off">
+                            <input class="primary-input form-control{{ $errors->has('pay_amount') ? ' is-invalid' : '' }}" type="text" onkeyup="isNumberKeyDecimal(this);" min="0" value="{{@$total_payable}}" name="pay_amount" placeholder="Paid amount"autocomplete="off">
                             <span class="focus-border"></span>
                             @if ($errors->has('pay_amount'))
                                 <span class="invalid-feedback" role="alert">

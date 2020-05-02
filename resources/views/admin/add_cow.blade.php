@@ -159,7 +159,7 @@
                                                     <div class="input-effect">
                                                         <label>Wight /KG<span>*</span> </label>
                                                         <input class="primary-input date form-control{{ $errors->has('weight') ? ' is-invalid' : '' }}" type="text"
-                                                        name="weight" value="{{isset($editData)? @$editData->weight : '' }}" >
+                                                        name="weight" onkeyup="isNumberKeyDecimal(this);" value="{{isset($editData)? @$editData->weight : '' }}" >
                                                         <span class="focus-border"></span>
                                                         
                                                         @if ($errors->has('weight'))
@@ -174,7 +174,7 @@
                                         <div class="col-lg-4">
                                             <div class="input-effect">
                                                 <label>Buy Price </label>
-                                                <input class="primary-input form-control{{ $errors->has('buy_price') ? ' is-invalid' : '' }}" type="number"  name="buy_price" value="{{isset($editData)? @$editData->buy_price : '' }}">
+                                                <input class="primary-input form-control{{ $errors->has('buy_price') ? ' is-invalid' : '' }}" onkeyup="isNumberKeyDecimal(this);" type="text"  name="buy_price" value="{{isset($editData)? @$editData->buy_price : '' }}">
                                                 <span class="focus-border"></span>
                                                 @if ($errors->has('buy_price'))
                                                 <span class="invalid-feedback" role="alert">

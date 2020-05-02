@@ -217,7 +217,8 @@
                                         <div class="col-lg-4">
                                             <div class="input-effect">
                                                 <label>Sell Price </label>
-                                                <input class="primary-input form-control{{ $errors->has('sell_price') ? ' is-invalid' : '' }}" type="number"  name="sell_price">
+                                                <input class="primary-input form-control{{ $errors->has('sell_price') ? ' is-invalid' : '' }}" type="text" 
+onkeyup="isNumberKeyDecimal(this);"  name="sell_price">
                                                 <span class="focus-border"></span>
                                                 @if ($errors->has('sell_price'))
                                                 <span class="invalid-feedback" role="alert">
