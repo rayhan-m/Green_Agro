@@ -112,7 +112,7 @@
                                                                 </div>
                                                                 <label>Food Details:</label>
                                                                 <div class="input-effect">
-                                                                    <textarea name="details"  rows="6" cols="56" class="{{ $errors->has('details') ? ' is-invalid' : '' }}">{{ @$item->details}}</textarea>
+                                                                    <textarea name="details"  rows="6" cols="50" class="{{ $errors->has('details') ? ' is-invalid' : '' }}">{{ @$item->details}}</textarea>
                                                                     @if ($errors->has('details'))
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $errors->first('details') }}</strong>
@@ -195,7 +195,7 @@
                                     <label>Food Details:</label>
                                     <div class="input-effect">
                                          
-                                        <textarea name="details" rows="6"  cols="56" class="{{ $errors->has('details') ? ' is-invalid' : '' }}"></textarea>
+                                        <textarea name="details" rows="6"  cols="50" class="{{ $errors->has('details') ? ' is-invalid' : '' }}"></textarea>
                                         @if ($errors->has('details'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('details') }}</strong>

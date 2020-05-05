@@ -44,6 +44,7 @@ class MilkPaymentController extends Controller
         $payment->to_date = $request->to_date;
         $payment->pay_amount = $request->pay_amount;
         $payment->payment_status = $request->payment_status;
+        $payment->save();
         if ($request->payment_status==1) {
             $sql=SellMilk::where('milk_buyer_id','=',$request->buyer_id)->where('sell_date','>=',$request->from_date)->where('sell_date','<=',$request->to_date)->where('status',1)->get();
             foreach ($sql as $key => $value) {
@@ -51,11 +52,17 @@ class MilkPaymentController extends Controller
                 $s->payment_status=1;
                 $s->save();
 
-                
+                // foreach ($sql as $key => $value) {
+                    $s= SellMilk::findorfail($value->id);
+                    $milk_sell_info= new MilkSellInfo();
+                    $milk_sell_info->milk_sell_id=$s->id;
+                    $milk_sell_info->payment_id=$payment->id;
+                    $milk_sell_info->save();
+                // }
             }
         }
         
-        $payment->save();
+        
 
         $sql=SellMilk::where('milk_buyer_id','=',$request->buyer_id)->where('sell_date','>=',$request->from_date)->where('sell_date','<=',$request->to_date)->where('status',1)->where('payment_status',0)->get();
         foreach ($sql as $key => $value) {
@@ -65,7 +72,6 @@ class MilkPaymentController extends Controller
             $milk_sell_info->payment_id=$payment->id;
             $milk_sell_info->save();
         }
-        
 
         Toastr::success('Operation successful', 'Success');
         return redirect()->route('milk_payment');
@@ -153,6 +159,6 @@ class MilkPaymentController extends Controller
             $total_payable= $total_payable + $value->total;
             // return $value->sell_date;
         }
-        return view('admin.invoice',compact('milk_payment','sellBuyer','total_payable','sell_milks','Sell_milk_info'));
+        return view('admin.invoice',compact('milk_payment','sellBuyer','total_payable','Sell_milk_info'));
     }
 }
